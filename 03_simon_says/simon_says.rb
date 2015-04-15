@@ -19,5 +19,15 @@ def start_of_word(string, num)
 end
 
 def titleize(string)
-	 string.split.map { |x| x.capitalize }.join(" ")
+	small_words = ["and", "the", "over", "a", "in"]
+
+	sentence = string.split
+	sentence.each do |word|
+		if small_words.include? word
+			sentence.map! {|word| word}
+		else
+			sentence.map! {|word| word.capitalize}
+		end
+	end
+		sentence.join(" ")
 end
